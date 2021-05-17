@@ -1,7 +1,7 @@
-import "tailwindcss/tailwind.css";
+import "tailwindcss/tailwind.css"
 
-import type { AppProps } from "next/app";
-import Head from "next/head";
+import type { AppProps } from "next/app"
+import Head from "next/head"
 
 const App = (props: AppProps) => {
   return (
@@ -11,7 +11,7 @@ const App = (props: AppProps) => {
       </Head>
       <props.Component {...props.pageProps} />
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

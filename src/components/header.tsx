@@ -1,10 +1,10 @@
-import Link from "next/link";
-import type { VFC } from "react";
+import Link from "next/link"
+import type { VFC } from "react"
 
 const items = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-];
+]
 
 export const Header: VFC = () => {
   return (
@@ -16,9 +16,9 @@ export const Header: VFC = () => {
             <Link key={href} href={href}>
               <a className="inline-block p-4">{label}</a>
             </Link>
-          );
+          )
         })}
       </nav>
     </header>
-  );
-};
+  )
+}
