@@ -1,10 +1,10 @@
-import type { VFC } from "react";
-import { Layout } from "src/components/layout";
+import type { VFC } from "react"
+import { Layout } from "src/components/Layout"
 
 const Home: VFC = () => {
   const handleClick = () => {
-    window.alert("Hello, World!");
-  };
+    window.alert("Hello, World!")
+  }
 
   return (
     <Layout>
@@ -12,7 +12,7 @@ const Home: VFC = () => {
         Click me!
       </button>
     </Layout>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

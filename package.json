@@ -22,9 +22,6 @@
       "next/babel"
     ]
   },
-  "prettier": {
-    "printWidth": 120
-  },
   "dependencies": {
     "next": "10.2.0",
     "react": "17.0.2",
