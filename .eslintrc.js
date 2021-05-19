@@ -20,7 +20,9 @@ module.exports = {
     "prefer-arrow-callback": "error",
     "prefer-const": "error",
     "func-style": ["error", "expression"],
+    // アロー関数では常に`return`を含むように設定（ワンライナーで書けないようになっている）
     "arrow-body-style": ["error", "always"],
+    // `react`からのデフォルトインポートを制限する設定
     "no-restricted-imports": ["error", { paths: [{ name: "react", importNames: ["default"] }] }],
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
