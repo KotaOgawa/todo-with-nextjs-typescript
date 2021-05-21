@@ -59,12 +59,7 @@ const Sandbox: VFC = () => {
         てすとだ
       </button>
       <button className="btn bg-yellow-300">ボタン</button>
-      <input
-        type="text"
-        value={inputText}
-        onChange={handleChange}
-        className="py-0.5 border border-gray-500 rounded-sm shadow-sm cursor-pointer"
-      />
+      <input type="text" value={inputText} onChange={handleChange} />
       {/* タスク入力部 */}
       <div className="flex h-12 w-80 p-2 m-2 bg-blue-100 rounded">
         <input
