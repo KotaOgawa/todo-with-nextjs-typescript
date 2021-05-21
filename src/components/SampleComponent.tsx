@@ -37,3 +37,23 @@ export const SampleComponent5: React.VFC<Props> = (props) => {
     </div>
   )
 }
+
+// 6. propsあり propsを分割代入で受け取るパターン
+export const SampleComponent6 = ({ text }: Props) => {
+  return <div>Hello {text}!</div>
+}
+
+// 7. propsあり propsを分割代入で受け取るパターン
+export const SampleComponent7: React.VFC<Props> = ({ text }) => {
+  return <div>Hello {text}!</div>
+}
+
+// 8. propsあり propsを分割代入で受け取るパターン children
+export const SampleComponent8 = ({ text, children }: Props) => {
+  return (
+    <div>
+      <div>Hello {text}!</div>
+      <div>{children}</div>
+    </div>
+  )
+}

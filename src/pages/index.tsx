@@ -1,21 +1,33 @@
 import type { VFC } from "react"
-import { BaseButton } from "src/components/atoms/BaseButton"
+import { useState } from "react"
 import { Layout } from "src/components/Layout"
-import {
-  SampleComponent1,
-  SampleComponent2,
-  SampleComponent3,
-  SampleComponent4,
-  SampleComponent5,
-} from "src/components/SampleComponent"
+
+// type Todo = {
+//   id: number
+//   body: string
+// }[]
 
 const Home: VFC = () => {
+  // const [incompleteTodos, setIncompleteTodos] = useState<(string | number)[]>([])
+  const [inputText, setInputText] = useState("")
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputText(e.target.value)
+  }
+
   return (
     <Layout>
+      <h1 className="text-xl text-center">{inputText}</h1>
+
       {/* タスク入力部 */}
       <div className="flex h-12 w-80 p-2 m-2 bg-blue-100 rounded">
-        <input type="text" className="py-0.5 border border-gray-500 rounded-sm shadow-sm cursor-pointer" />
-        <button type="button" className="border-gray-500 bg-white btn">
+        <input
+          type="text"
+          value={inputText}
+          onChange={handleChange}
+          className="py-0.5 border border-gray-500 rounded-sm shadow-sm cursor-pointer"
+        />
+        <button type="button" className="border-gray-500 btn">
           追加
         </button>
       </div>
@@ -42,19 +54,6 @@ const Home: VFC = () => {
           </div>
         </ul>
       </div>
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <SampleComponent1 />
-      <SampleComponent2 />
-      <SampleComponent3 text="TypeScript" />
-      <SampleComponent4 text="TypeScript" />
-      <SampleComponent5 text="TypeScript">ちるどれん</SampleComponent5>
-      <BaseButton text="サンプルボタン" />
     </Layout>
   )
 }
