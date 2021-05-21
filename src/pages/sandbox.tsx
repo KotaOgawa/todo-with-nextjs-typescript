@@ -56,7 +56,7 @@ const Sandbox: VFC = () => {
         +1
       </button>
       <button onClick={() => setTodos([])} className="btn bg-blue-300">
-        てすと
+        てすとだ
       </button>
       <button className="btn bg-yellow-300">ボタン</button>
       <input
