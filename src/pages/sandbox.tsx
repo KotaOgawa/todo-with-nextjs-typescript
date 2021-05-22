@@ -47,19 +47,21 @@ const Sandbox: VFC = () => {
       <h1 className="text-xl text-center">{inputText}</h1>
       <h1 className="text-xl text-center">{user.id}</h1>
       <h1 className="text-xl text-center">{user.name}</h1>
-      <ul>
+      <ul className="bg-blue-300">
         {todos.map((item) => {
           return <li key={Math.random()}>{item.body}</li>
         })}
       </ul>
-      <button className="btn bg-purple-300" onClick={() => setTodos((prev) => [...prev, { id: 10, body: "aiko" }])}>
-        +1
-      </button>
-      <button onClick={() => setTodos([])} className="btn bg-blue-300">
-        てすとだ
-      </button>
-      <button className="btn bg-yellow-300">ボタン</button>
-      <input type="text" value={inputText} onChange={handleChange} />
+      <div className="text-center bg-green-300">
+        <button className="btn bg-purple-300" onClick={() => setTodos((prev) => [...prev, { id: 10, body: "aiko" }])}>
+          +1
+        </button>
+        <button onClick={() => setTodos([])} className="btn bg-yellow-300">
+          てすとだ
+        </button>
+        <button className="btn bg-yellow-300">ボタン</button>
+        <input type="text" value={inputText} onChange={handleChange} className="border" />
+      </div>
       {/* タスク入力部 */}
       <div className="flex h-12 w-80 p-2 m-2 bg-blue-100 rounded">
         <input
