@@ -1,7 +1,7 @@
 import type { ChangeEvent, VFC } from "react"
 import { useState } from "react"
 import { InputTodo } from "src/components/InputTodo"
-import { Layout } from "src/components/Layout"
+import { Layout } from "src/components/Laaaayout"
 
 const Home: VFC = () => {
   const [inputText, setInputText] = useState("")

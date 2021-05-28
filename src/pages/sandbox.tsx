@@ -4,7 +4,7 @@
 import type { VFC } from "react"
 import { useState } from "react"
 import { BaseButton } from "src/components/atoms/BaseButton"
-import { Layout } from "src/components/Layout"
+import { Layout } from "src/components/Laaaayout"
 import {
   SampleComponent1,
   SampleComponent2,
