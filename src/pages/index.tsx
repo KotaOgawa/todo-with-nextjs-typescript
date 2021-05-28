@@ -1,7 +1,7 @@
 import type { ChangeEvent, VFC } from "react"
 import { useState } from "react"
 import { InputTodo } from "src/components/InputTodo"
-import { Layout } from "src/components/Laaaayout"
+import { Layout } from "src/components/Layout"
 
 const Home: VFC = () => {
   const [inputText, setInputText] = useState("")
@@ -28,8 +28,12 @@ const Home: VFC = () => {
             return (
               <div key={todo} className="flex items-center">
                 <li className="pl-5 list-decimal list-inside">{todo}</li>
-                <button className="btn border-gray-500">完了</button>
-                <button className="btn border-gray-500">削除</button>
+                <button className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none border-gray-500">
+                  完了
+                </button>
+                <button className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none border-gray-500">
+                  削除
+                </button>
               </div>
             )
           })}
@@ -44,7 +48,9 @@ const Home: VFC = () => {
             return (
               <div key={index} className="flex items-center">
                 <li className="pl-5 list-disc list-inside ">{todo}</li>
-                <button className="btn border-gray-500">戻す</button>
+                <button className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none border-gray-500">
+                  戻す
+                </button>
               </div>
             )
           })}

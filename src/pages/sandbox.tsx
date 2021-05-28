@@ -4,7 +4,7 @@
 import type { VFC } from "react"
 import { useState } from "react"
 import { BaseButton } from "src/components/atoms/BaseButton"
-import { Layout } from "src/components/Laaaayout"
+import { Layout } from "src/components/Layout"
 import {
   SampleComponent1,
   SampleComponent2,
@@ -58,14 +58,25 @@ const Sandbox: VFC = () => {
         })}
       </ul>
       <div className="text-center bg-green-300">
-        <button className="btn bg-purple-300" onClick={() => setTodos((prev) => [...prev, { id: 10, body: "aiko" }])}>
+        <button
+          className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none bg-purple-300"
+          onClick={() => setTodos((prev) => [...prev, { id: 10, body: "aiko" }])}
+        >
           +1
         </button>
-        <button onClick={() => setTodos([])} className="btn bg-yellow-300">
+        <button
+          onClick={() => setTodos([])}
+          className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none bg-yellow-300"
+        >
           てすとだ
         </button>
-        <button className="btn bg-yellow-300">ボタン</button>
-        <button onClick={handleClick} className="btn">
+        <button className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none bg-yellow-300">
+          ボタン
+        </button>
+        <button
+          onClick={handleClick}
+          className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none"
+        >
           logボタン
         </button>
         <input type="text" value={inputText} onChange={handleChange} className="border" />
@@ -80,7 +91,10 @@ const Sandbox: VFC = () => {
           }}
           className="py-0.5 border border-gray-500 rounded-sm shadow-sm cursor-pointer"
         />
-        <button type="button" className="border-gray-500 btn">
+        <button
+          type="button"
+          className="border-gray-500 py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none"
+        >
           追加
         </button>
       </div>

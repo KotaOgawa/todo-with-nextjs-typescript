@@ -14,7 +14,10 @@ export const InputTodo: VFC<Props> = (props) => {
         onChange={props.handleInputChange}
         className="p-2 border border-gray-500 rounded-sm shadow-sm cursor-pointer"
       />
-      <button type="button" className="border-gray-500 btn">
+      <button
+        type="button"
+        className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none border-gray-500"
+      >
         追加
       </button>
     </div>

@@ -1,6 +1,6 @@
 import type { VFC } from "react"
 import { EslintIgnoreTest } from "src/components/EslintIgnoreTest"
-import { Layout } from "src/components/Laaaayout"
+import { Layout } from "src/components/Layout"
 
 const About: VFC = () => {
   return (
