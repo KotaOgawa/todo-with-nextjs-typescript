@@ -1,17 +1,15 @@
-import type { VFC } from "react"
+import type { ChangeEvent, VFC } from "react"
 import { useState } from "react"
+import { InputTodo } from "src/components/InputTodo"
 import { Layout } from "src/components/Layout"
 
-// type Todo = {
-//   id: number
-//   body: string
-// }[]
-
 const Home: VFC = () => {
-  // const [incompleteTodos, setIncompleteTodos] = useState<(string | number)[]>([])
   const [inputText, setInputText] = useState("")
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // eslint-disable-next-line
+  const [incompleteTodos, setIncompleteTodos] = useState<string[]>(["タスク1", "タスク2"]) // 型推論でもいいかも？
+  // eslint-disable-next-line
+  const [completeTodos, setCompleteTodos] = useState<string[]>(["タスク3"]) // 型推論でもいいかも？
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value)
   }
 
@@ -20,27 +18,21 @@ const Home: VFC = () => {
       <h1 className="text-xl text-center">{inputText}</h1>
 
       {/* タスク入力部 */}
-      <div className="flex h-12 w-80 p-2 m-2 bg-blue-100 rounded">
-        <input
-          type="text"
-          value={inputText}
-          onChange={handleChange}
-          className="py-0.5 border border-gray-500 rounded-sm shadow-sm cursor-pointer"
-        />
-        <button type="button" className="border-gray-500 btn">
-          追加
-        </button>
-      </div>
+      <InputTodo inputText={inputText} handleInputChange={handleChange} />
 
       {/* 未完了のタスク */}
       <div className="w-80 p-2 m-2 bg-yellow-100 rounded">
         <p className="mb-2 text-lg font-medium text-center">未完了のTODO</p>
         <ul>
-          <div className="flex items-center">
-            <li className="pl-5 list-decimal list-inside">リストアイテム</li>
-            <button className="btn border-gray-500">完了</button>
-            <button className="btn border-gray-500">削除</button>
-          </div>
+          {incompleteTodos.map((todo: string) => {
+            return (
+              <div key={todo} className="flex items-center">
+                <li className="pl-5 list-decimal list-inside">{todo}</li>
+                <button className="btn border-gray-500">完了</button>
+                <button className="btn border-gray-500">削除</button>
+              </div>
+            )
+          })}
         </ul>
       </div>
 
@@ -48,10 +40,14 @@ const Home: VFC = () => {
       <div className="w-80 p-2 m-2 bg-pink-100 rounded">
         <p className="mb-2 text-lg font-medium text-center">完了済みのTODO</p>
         <ul>
-          <div className="flex items-center">
-            <li className="pl-5 list-disc list-inside ">リストアイテム</li>
-            <button className="btn border-gray-500">戻す</button>
-          </div>
+          {completeTodos.map((todo: string, index: number) => {
+            return (
+              <div key={index} className="flex items-center">
+                <li className="pl-5 list-disc list-inside ">{todo}</li>
+                <button className="btn border-gray-500">戻す</button>
+              </div>
+            )
+          })}
         </ul>
       </div>
     </Layout>

@@ -1,5 +1,5 @@
 {
-  /* eslint-disable arrow-body-style, @typescript-eslint/no-unused-vars */
+  /* eslint-disable arrow-body-style, @typescript-eslint/no-unused-vars, no-console */
 }
 import type { VFC } from "react"
 import { useState } from "react"
@@ -25,7 +25,7 @@ const Sandbox: VFC = () => {
   type Todo = {
     id: number
     body: string
-  }[]
+  }
 
   const [animals, setAnimals] = useState(["dog", "cat"])
   const [numbers, setNumbers] = useState<number[]>([])
@@ -35,10 +35,15 @@ const Sandbox: VFC = () => {
   const [isBool, setIsBool] = useState(false)
   const [inputText, setInputText] = useState("")
   const [user, setUser] = useState<User>({ id: 1122, name: "aiko" })
-  const [todos, setTodos] = useState<Todo>([{ id: 0, body: "初期値" }])
+  const [todos, setTodos] = useState<Todo[]>([{ id: 0, body: "初期値" }])
+  const [currentUser, setCurrentUser] = useState({ name: "aiko", age: 45, isMarried: false })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value)
+  }
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    console.log("ボタンが押されたよ")
   }
 
   return (
@@ -48,8 +53,8 @@ const Sandbox: VFC = () => {
       <h1 className="text-xl text-center">{user.id}</h1>
       <h1 className="text-xl text-center">{user.name}</h1>
       <ul className="bg-blue-300">
-        {todos.map((item) => {
-          return <li key={Math.random()}>{item.body}</li>
+        {todos.map((item: Todo) => {
+          return <li key={Math.random()}>{item.id}</li>
         })}
       </ul>
       <div className="text-center bg-green-300">
@@ -60,6 +65,9 @@ const Sandbox: VFC = () => {
           てすとだ
         </button>
         <button className="btn bg-yellow-300">ボタン</button>
+        <button onClick={handleClick} className="btn">
+          logボタン
+        </button>
         <input type="text" value={inputText} onChange={handleChange} className="border" />
       </div>
       {/* タスク入力部 */}
