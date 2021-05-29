@@ -1,9 +1,11 @@
-import type { ChangeEvent, VFC } from "react"
+import type { NextPage } from "next"
+import type { ChangeEvent } from "react"
 import { useState } from "react"
-import { InputTodo } from "src/components/InputTodo"
 import { Layout } from "src/components/Layout"
+import { Presenter } from "src/components/Presenter"
 
-const Home: VFC = () => {
+// ここが Container 的な役割を担う。ロジック担当
+const Home: NextPage = () => {
   const [inputText, setInputText] = useState("")
   // eslint-disable-next-line
   const [incompleteTodos, setIncompleteTodos] = useState<string[]>(["タスク1", "タスク2"]) // 型推論でもいいかも？
@@ -13,49 +15,19 @@ const Home: VFC = () => {
     setInputText(e.target.value)
   }
 
+  const addTodo = () => {
+    console.log("タスクを追加") // eslint-disable-line
+  }
+
   return (
     <Layout>
-      <h1 className="text-xl text-center">{inputText}</h1>
-
-      {/* タスク入力部 */}
-      <InputTodo inputText={inputText} handleInputChange={handleChange} />
-
-      {/* 未完了のタスク */}
-      <div className="w-80 p-2 m-2 bg-yellow-100 rounded">
-        <p className="mb-2 text-lg font-medium text-center">未完了のTODO</p>
-        <ul>
-          {incompleteTodos.map((todo: string) => {
-            return (
-              <div key={todo} className="flex items-center">
-                <li className="pl-5 list-decimal list-inside">{todo}</li>
-                <button className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none border-gray-500">
-                  完了
-                </button>
-                <button className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none border-gray-500">
-                  削除
-                </button>
-              </div>
-            )
-          })}
-        </ul>
-      </div>
-
-      {/* 完了済みのタスク */}
-      <div className="w-80 p-2 m-2 bg-pink-100 rounded">
-        <p className="mb-2 text-lg font-medium text-center">完了済みのTODO</p>
-        <ul>
-          {completeTodos.map((todo: string, index: number) => {
-            return (
-              <div key={index} className="flex items-center">
-                <li className="pl-5 list-disc list-inside ">{todo}</li>
-                <button className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none border-gray-500">
-                  戻す
-                </button>
-              </div>
-            )
-          })}
-        </ul>
-      </div>
+      <Presenter
+        inputText={inputText}
+        handleChange={handleChange}
+        incompleteTodos={incompleteTodos}
+        completeTodos={completeTodos}
+        addTodo={addTodo}
+      />
     </Layout>
   )
 }
