@@ -15,7 +15,7 @@ const Home: NextPage = () => {
     setInputText(e.target.value)
   }
 
-  const addTodo = () => {
+  const addTodo = (): void => {
     if (inputText === "") return
     // const newTodos = [...incompleteTodos, inputText]
     // setIncompleteTodos(newTodos)
@@ -23,6 +23,12 @@ const Home: NextPage = () => {
       return [...prevArray, inputText]
     })
     setInputText("")
+  }
+
+  const deleteTodo = (index: number): void => {
+    const newArray = [...incompleteTodos]
+    newArray.splice(index, 1)
+    setIncompleteTodos(newArray)
   }
 
   return (
@@ -33,6 +39,7 @@ const Home: NextPage = () => {
         incompleteTodos={incompleteTodos}
         completeTodos={completeTodos}
         addTodo={addTodo}
+        deleteTodo={deleteTodo}
       />
     </Layout>
   )
