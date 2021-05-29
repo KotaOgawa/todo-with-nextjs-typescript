@@ -14,12 +14,12 @@ export const InputTodo: VFC<Props> = (props) => {
         value={props.inputText}
         onChange={props.handleInputChange}
         placeholder="TODOを入力できます"
-        className="p-2 border border-gray-500 rounded-sm shadow-sm cursor-pointer"
+        className="p-2 border border-gray-500 rounded shadow-sm cursor-pointer"
       />
       <button
         type="button"
         onClick={props.addTodo}
-        className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none border-gray-500"
+        className="py-0.5 pl-1 pr-1 ml-2 text-sm border rounded shadow-sm cursor-pointer focus:outline-none border-gray-500 hover:bg-pink-300"
       >
         追加
       </button>

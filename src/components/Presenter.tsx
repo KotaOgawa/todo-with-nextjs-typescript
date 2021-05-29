@@ -13,23 +13,21 @@ type Props = {
 export const Presenter: VFC<Props> = (props) => {
   return (
     <div>
-      <h1 className="text-xl text-center">{props.inputText}</h1>
-
       {/* タスク入力部 */}
       <InputTodo inputText={props.inputText} handleInputChange={props.handleChange} addTodo={props.addTodo} />
 
       {/* 未完了のタスク */}
       <div className="w-80 p-2 m-2 bg-yellow-100 rounded">
         <p className="mb-2 text-lg font-medium text-center">未完了のTODO</p>
-        <ul>
+        <ul className="space-y-2">
           {props.incompleteTodos.map((todo: string) => {
             return (
               <div key={todo} className="flex items-center">
-                <li className="pl-5 list-decimal list-inside">{todo}</li>
-                <button className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none border-gray-500">
+                <li className="pl-5 list-disc list-inside">{todo}</li>
+                <button className="px-0.5 ml-2 text-sm border rounded shadow-sm cursor-pointer focus:outline-none border-gray-500 hover:bg-pink-300">
                   完了
                 </button>
-                <button className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none border-gray-500">
+                <button className="px-0.5 ml-2 text-sm border rounded shadow-sm cursor-pointer focus:outline-none border-gray-500 hover:bg-pink-300">
                   削除
                 </button>
               </div>
@@ -41,18 +39,18 @@ export const Presenter: VFC<Props> = (props) => {
       {/* 完了済みのタスク */}
       <div className="w-80 p-2 m-2 bg-pink-100 rounded">
         <p className="mb-2 text-lg font-medium text-center">完了済みのTODO</p>
-        <ul>
+        <ol>
           {props.completeTodos.map((todo: string, index: number) => {
             return (
               <div key={index} className="flex items-center">
-                <li className="pl-5 list-disc list-inside ">{todo}</li>
-                <button className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none border-gray-500">
+                <li className="pl-5 list-decimal list-inside ">{todo}</li>
+                <button className="px-0.5 ml-2 text-sm border rounded shadow-sm cursor-pointer focus:outline-none border-gray-500 hover:bg-pink-300">
                   戻す
                 </button>
               </div>
             )
           })}
-        </ul>
+        </ol>
       </div>
     </div>
   )
