@@ -16,7 +16,13 @@ const Home: NextPage = () => {
   }
 
   const addTodo = () => {
-    console.log("タスクを追加") // eslint-disable-line
+    if (inputText === "") return
+    // const newTodos = [...incompleteTodos, inputText]
+    // setIncompleteTodos(newTodos)
+    setIncompleteTodos((prevArray) => {
+      return [...prevArray, inputText]
+    })
+    setInputText("")
   }
 
   return (

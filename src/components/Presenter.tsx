@@ -16,7 +16,7 @@ export const Presenter: VFC<Props> = (props) => {
       <h1 className="text-xl text-center">{props.inputText}</h1>
 
       {/* タスク入力部 */}
-      <InputTodo inputText={props.inputText} handleInputChange={props.handleChange} />
+      <InputTodo inputText={props.inputText} handleInputChange={props.handleChange} addTodo={props.addTodo} />
 
       {/* 未完了のタスク */}
       <div className="w-80 p-2 m-2 bg-yellow-100 rounded">
