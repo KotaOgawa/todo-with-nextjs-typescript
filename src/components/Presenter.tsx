@@ -9,6 +9,7 @@ type Props = {
   handleAddTodo: () => void
   handleDeleteTodo: (index: number) => void
   handleCompleteTodo: (index: number) => void
+  handleRevertTodo: (index: number) => void
 }
 
 // ここがPresenter的な役割。UI担当
@@ -60,7 +61,12 @@ export const Presenter: VFC<Props> = (props) => {
             return (
               <div key={index} className="flex items-center">
                 <li className="pl-5 list-decimal list-inside ">{todo}</li>
-                <button className="px-0.5 ml-2 text-sm hover:bg-pink-300 rounded border border-gray-500 shadow-sm cursor-pointer focus:outline-none">
+                <button
+                  onClick={() => {
+                    props.handleRevertTodo(index)
+                  }}
+                  className="px-0.5 ml-2 text-sm hover:bg-pink-300 rounded border border-gray-500 shadow-sm cursor-pointer focus:outline-none"
+                >
                   戻す
                 </button>
               </div>

@@ -48,6 +48,17 @@ const Home: NextPage = () => {
     })
   }
 
+  const handleRevertTodo = (index: number) => {
+    // 完了リストの更新
+    const newCompleteTodos = [...completeTodos]
+    newCompleteTodos.splice(index, 1)
+    setCompleteTodos(newCompleteTodos)
+
+    // 未完了リストへの復元
+    const newIncompleteTodos = [...incompleteTodos, completeTodos[index]]
+    setIncompleteTodos(newIncompleteTodos)
+  }
+
   return (
     <Layout>
       <Presenter
@@ -58,6 +69,7 @@ const Home: NextPage = () => {
         handleAddTodo={handleAddTodo}
         handleDeleteTodo={handleDeleteTodo}
         handleCompleteTodo={handleCompleteTodo}
+        handleRevertTodo={handleRevertTodo}
       />
     </Layout>
   )
