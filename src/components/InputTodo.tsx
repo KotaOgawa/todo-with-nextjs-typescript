@@ -3,7 +3,7 @@ import type { ChangeEvent, VFC } from "react"
 type Props = {
   inputText: string
   handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void
-  addTodo: () => void
+  handleAddTodo: () => void
 }
 
 export const InputTodo: VFC<Props> = (props) => {
@@ -18,7 +18,7 @@ export const InputTodo: VFC<Props> = (props) => {
       />
       <button
         type="button"
-        onClick={props.addTodo}
+        onClick={props.handleAddTodo}
         className="py-0.5 pr-1 pl-1 ml-2 text-sm hover:bg-pink-300 rounded border border-gray-500 shadow-sm cursor-pointer focus:outline-none"
       >
         追加

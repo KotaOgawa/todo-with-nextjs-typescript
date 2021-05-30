@@ -6,8 +6,9 @@ type Props = {
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void
   incompleteTodos: string[]
   completeTodos: string[]
-  addTodo: () => void
-  deleteTodo: (index: number) => void
+  handleAddTodo: () => void
+  handleDeleteTodo: (index: number) => void
+  handleCompleteTodo: () => void
 }
 
 // ここがPresenter的な役割。UI担当
@@ -15,7 +16,11 @@ export const Presenter: VFC<Props> = (props) => {
   return (
     <div>
       {/* タスク入力部 */}
-      <InputTodo inputText={props.inputText} handleInputChange={props.handleChange} addTodo={props.addTodo} />
+      <InputTodo
+        inputText={props.inputText}
+        handleInputChange={props.handleChange}
+        handleAddTodo={props.handleAddTodo}
+      />
 
       {/* 未完了のタスク */}
       <div className="p-2 m-2 w-80 bg-yellow-100 rounded">
@@ -30,7 +35,7 @@ export const Presenter: VFC<Props> = (props) => {
                 </button>
                 <button
                   onClick={() => {
-                    props.deleteTodo(index)
+                    props.handleDeleteTodo(index)
                   }}
                   className="px-0.5 ml-2 text-sm hover:bg-pink-300 rounded border border-gray-500 shadow-sm cursor-pointer focus:outline-none"
                 >
@@ -50,7 +55,10 @@ export const Presenter: VFC<Props> = (props) => {
             return (
               <div key={index} className="flex items-center">
                 <li className="pl-5 list-decimal list-inside ">{todo}</li>
-                <button className="px-0.5 ml-2 text-sm hover:bg-pink-300 rounded border border-gray-500 shadow-sm cursor-pointer focus:outline-none">
+                <button
+                  onClick={props.handleCompleteTodo}
+                  className="px-0.5 ml-2 text-sm hover:bg-pink-300 rounded border border-gray-500 shadow-sm cursor-pointer focus:outline-none"
+                >
                   戻す
                 </button>
               </div>
