@@ -12,6 +12,22 @@ type Props = {
   handleRevertTodo: (index: number) => void
 }
 
+// アイテムにまとめて下のTODOリストを共通化したい
+// const ITEMS = [
+//   {
+//     title: "未完了のTODO",
+//     funcs: [
+//       { funcName: "完了", func:  }
+//     ],
+//   },
+//   {
+//     title: "完了済みのTODO",
+//     funcs: [
+//       { funcName: "完了", func:  }
+//     ],
+//   },
+// ]
+
 // ここがPresenter的な役割。UI担当
 export const Presenter: VFC<Props> = (props) => {
   return (
