@@ -59,41 +59,41 @@ const Sandbox: VFC = () => {
       </ul>
       <div className="text-center bg-green-300">
         <button
-          className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none bg-purple-300"
+          className="py-0.5 pr-1 pl-1 ml-2 bg-purple-300 rounded-sm border shadow-sm cursor-pointer focus:outline-none"
           onClick={() => setTodos((prev) => [...prev, { id: 10, body: "aiko" }])}
         >
           +1
         </button>
         <button
           onClick={() => setTodos([])}
-          className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none bg-yellow-300"
+          className="py-0.5 pr-1 pl-1 ml-2 bg-yellow-300 rounded-sm border shadow-sm cursor-pointer focus:outline-none"
         >
           てすとだ
         </button>
-        <button className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none bg-yellow-300">
+        <button className="py-0.5 pr-1 pl-1 ml-2 bg-yellow-300 rounded-sm border shadow-sm cursor-pointer focus:outline-none">
           ボタン
         </button>
         <button
           onClick={handleClick}
-          className="py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none"
+          className="py-0.5 pr-1 pl-1 ml-2 rounded-sm border shadow-sm cursor-pointer focus:outline-none"
         >
           logボタン
         </button>
         <input type="text" value={inputText} onChange={handleChange} className="border" />
       </div>
       {/* タスク入力部 */}
-      <div className="flex h-12 w-80 p-2 m-2 bg-blue-100 rounded">
+      <div className="flex p-2 m-2 w-80 h-12 bg-blue-100 rounded">
         <input
           type="text"
           value={inputText}
           onChange={(e) => {
             return setInputText(e.target.value)
           }}
-          className="py-0.5 border border-gray-500 rounded-sm shadow-sm cursor-pointer"
+          className="py-0.5 rounded-sm border border-gray-500 shadow-sm cursor-pointer"
         />
         <button
           type="button"
-          className="border-gray-500 py-0.5 pl-1 pr-1 ml-2 border rounded-sm shadow-sm cursor-pointer focus:outline-none"
+          className="py-0.5 pr-1 pl-1 ml-2 rounded-sm border border-gray-500 shadow-sm cursor-pointer focus:outline-none"
         >
           追加
         </button>
