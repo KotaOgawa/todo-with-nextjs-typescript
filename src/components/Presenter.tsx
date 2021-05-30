@@ -8,7 +8,7 @@ type Props = {
   completeTodos: string[]
   handleAddTodo: () => void
   handleDeleteTodo: (index: number) => void
-  handleCompleteTodo: () => void
+  handleCompleteTodo: (index: number) => void
 }
 
 // ここがPresenter的な役割。UI担当
@@ -30,7 +30,12 @@ export const Presenter: VFC<Props> = (props) => {
             return (
               <div key={todo} className="flex items-center">
                 <li className="pl-5 list-disc list-inside">{todo}</li>
-                <button className="px-0.5 ml-2 text-sm hover:bg-pink-300 rounded border border-gray-500 shadow-sm cursor-pointer focus:outline-none">
+                <button
+                  onClick={() => {
+                    props.handleCompleteTodo(index)
+                  }}
+                  className="px-0.5 ml-2 text-sm hover:bg-pink-300 rounded border border-gray-500 shadow-sm cursor-pointer focus:outline-none"
+                >
                   完了
                 </button>
                 <button
@@ -55,10 +60,7 @@ export const Presenter: VFC<Props> = (props) => {
             return (
               <div key={index} className="flex items-center">
                 <li className="pl-5 list-decimal list-inside ">{todo}</li>
-                <button
-                  onClick={props.handleCompleteTodo}
-                  className="px-0.5 ml-2 text-sm hover:bg-pink-300 rounded border border-gray-500 shadow-sm cursor-pointer focus:outline-none"
-                >
+                <button className="px-0.5 ml-2 text-sm hover:bg-pink-300 rounded border border-gray-500 shadow-sm cursor-pointer focus:outline-none">
                   戻す
                 </button>
               </div>
