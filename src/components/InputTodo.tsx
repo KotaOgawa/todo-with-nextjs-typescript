@@ -8,18 +8,18 @@ type Props = {
 
 export const InputTodo: VFC<Props> = (props) => {
   return (
-    <div className="flex h-12 w-80 p-2 m-2 bg-blue-100 rounded">
+    <div className="flex p-2 m-2 w-80 h-12 bg-blue-100 rounded">
       <input
         type="text"
         value={props.inputText}
         onChange={props.handleInputChange}
         placeholder="TODOを入力できます"
-        className="p-2 border border-gray-500 rounded shadow-sm cursor-pointer"
+        className="p-2 rounded border border-gray-500 shadow-sm cursor-pointer"
       />
       <button
         type="button"
         onClick={props.addTodo}
-        className="py-0.5 pl-1 pr-1 ml-2 text-sm border rounded shadow-sm cursor-pointer focus:outline-none border-gray-500 hover:bg-pink-300"
+        className="py-0.5 pr-1 pl-1 ml-2 text-sm hover:bg-pink-300 rounded border border-gray-500 shadow-sm cursor-pointer focus:outline-none"
       >
         追加
       </button>
