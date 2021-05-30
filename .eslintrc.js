@@ -4,7 +4,7 @@ module.exports = {
   parserOptions: { project: "./tsconfig.json", ecmaFeatures: { jsx: true } },
   settings: { react: { version: "detect" } },
   env: { es2021: true, browser: true, jest: true, node: true },
-  plugins: ["@typescript-eslint", "import", "simple-import-sort"],
+  plugins: ["@typescript-eslint", "import", "simple-import-sort", "tailwindcss"],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -49,6 +49,9 @@ module.exports = {
       "error",
       { components: ["Link"], specialLink: ["hrefLeft", "hrefRight"], aspects: ["invalidHref", "preferButton"] },
     ],
+    "tailwindcss/classnames-order": "warn",
+    "tailwindcss/no-custom-classname": "warn",
+    "tailwindcss/no-contradicting-classname": "error",
   },
   overrides: [{ files: ["src/pages/**/*.tsx"], rules: { "import/no-default-export": "off" } }],
 }
